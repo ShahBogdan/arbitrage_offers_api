@@ -24,7 +24,7 @@ from pathlib import Path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('offers', include(offers_url)),
+    path('offers/', include(offers_url)),
     re_path(r'^media(?P<path>.*)$', serve, {'document_root': str(Path(
         'media/'))}),
 ]
