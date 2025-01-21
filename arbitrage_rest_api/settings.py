@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'offers_api',
     'rest_framework',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [

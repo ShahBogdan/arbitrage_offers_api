@@ -29,6 +29,7 @@ class Documents(models.Model):
 
 
 class Offer(models.Model):
+    order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100, verbose_name='Назва')
@@ -39,7 +40,6 @@ class Offer(models.Model):
     second_amount = models.IntegerField(
         verbose_name='Повторний кредит макс грн.')
     amount_from = models.IntegerField(verbose_name='Кредит від грн.')
-    amount_to = models.IntegerField(verbose_name='Кредит до грн.')
     percent_per_day = models.DecimalField(
         max_digits=15, decimal_places=4, verbose_name='Відсотків на день')
     term_from = models.IntegerField(verbose_name='Кредит від - днів')
@@ -57,14 +57,12 @@ class Offer(models.Model):
     documents = models.ForeignKey(
         Documents, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Документи')
     age = models.IntegerField(verbose_name='Вік до')
-    cash = models.BooleanField(verbose_name='Готівкою')
-    card = models.BooleanField(verbose_name='На картку')
+
     time_to_get = models.IntegerField(verbose_name='Час на отримання коштів')
     on_lending = models.BooleanField(verbose_name='Перекредитування')
+    cash = models.BooleanField(verbose_name='Готівкою')
     bank_card = models.BooleanField(verbose_name='На банківську картку')
-    passport = models.BooleanField(verbose_name='Паспорт')
     bankID = models.BooleanField(verbose_name='Верифікація через bankID')
-    code = models.BooleanField(verbose_name='ІПН')
     around_the_clock = models.BooleanField(verbose_name='Цілодобово')
     basic_characteristics_href = models.URLField(
         verbose_name='Посилання на Істотні характеристики послуги')
@@ -76,6 +74,9 @@ class Offer(models.Model):
     phone = models.CharField(max_length=200, verbose_name='Телефон')
     legal_entity = models.CharField(
         max_length=200, verbose_name='Юридична особа')
+
+    class Meta:
+        ordering = ['order']
 
     def __str__(self):
         return self.name
