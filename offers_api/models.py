@@ -50,12 +50,12 @@ class Offer(models.Model):
         max_digits=15, decimal_places=4, verbose_name='Реальна річна ставка до')
     days_rate = models.DecimalField(
         max_digits=15, decimal_places=4, verbose_name='Денна відсодкова ставка')
-    advantages = models.ForeignKey(
-        Advantages, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Переваги')
-    repayment_methods = models.ForeignKey(
-        RepaymentMethods, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Способи погашення')
-    documents = models.ForeignKey(
-        Documents, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Документи')
+    advantages = models.ManyToManyField(
+        Advantages,  blank=True, verbose_name='Переваги')
+    repayment_methods = models.ManyToManyField(
+        RepaymentMethods,  blank=True,  verbose_name='Способи погашення')
+    documents = models.ManyToManyField(
+        Documents,  blank=True, verbose_name='Документи')
     age = models.IntegerField(verbose_name='Вік до')
 
     time_to_get = models.IntegerField(verbose_name='Час на отримання коштів')
