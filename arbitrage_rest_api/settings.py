@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'offers_api',
     'rest_framework',
     'adminsortable2',
-    'corsheaders'
+    'corsheaders',
+    'faq_api'
 ]
 
 MIDDLEWARE = [

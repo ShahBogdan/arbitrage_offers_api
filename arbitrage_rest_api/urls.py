@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from offers_api import urls as offers_url
-from django.conf import settings
+from faq_api import urls as faq_url
 from django.views.static import serve
 from pathlib import Path
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('offers/', include(offers_url)),
+    path('faq/', include(faq_url)),
     re_path(r'^media(?P<path>.*)$', serve, {'document_root': str(Path(
         'media/'))}),
 ]
