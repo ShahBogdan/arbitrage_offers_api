@@ -49,3 +49,15 @@ class PageApiView(APIView):
 
     def post(self):
         pass
+
+
+class MainMenuPagesApiView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        main_menu_pages = Page.objects.filter(show_in_main_menu=True)
+        serializer = PagesSerializer(main_menu_pages, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self):
+        pass
