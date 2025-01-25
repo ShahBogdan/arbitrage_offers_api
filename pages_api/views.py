@@ -22,13 +22,30 @@ class PagesApiView(APIView):
 
         return paginator.get_paginated_response(serializer.data)
 
-    def menuItems(self, request, *args, **kwargs):
-        offers = Page.objects.filter(show_in_main_menu=False)
-        paginator = CustomPageNumberPagination()
-        paginated_offers = paginator.paginate_queryset(offers, request)
-        serializer = PagesSerializer(paginated_offers, many=True)
+    def post(self):
+        pass
 
-        return paginator.get_paginated_response(serializer.data)
+
+class PageApiView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get_object(self, page_id):
+        try:
+            return Page.objects.get(id=page_id)
+        except Page.DoesNotExist:
+            return None
+
+    def get(self, request, page_id, *args, **kwargs):
+        page = self.get_object(page_id)
+
+        if not page:
+            return Response(
+                {"res": "Object with todo id does not exists"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        serializer = PagesSerializer(page)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self):
         pass
