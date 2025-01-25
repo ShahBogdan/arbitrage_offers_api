@@ -29,14 +29,14 @@ class PagesApiView(APIView):
 class PageApiView(APIView):
     permission_classes = [permissions.AllowAny]
 
-    def get_object(self, page_id):
+    def get_object(self, page_slug):
         try:
-            return Page.objects.get(id=page_id)
+            return Page.objects.get(slug=page_slug)
         except Page.DoesNotExist:
             return None
 
-    def get(self, request, page_id, *args, **kwargs):
-        page = self.get_object(page_id)
+    def get(self, request, page_slug, *args, **kwargs):
+        page = self.get_object(page_slug)
 
         if not page:
             return Response(

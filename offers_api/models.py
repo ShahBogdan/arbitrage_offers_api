@@ -74,6 +74,8 @@ class Offer(models.Model):
     phone = models.CharField(max_length=200, verbose_name='Телефон')
     legal_entity = models.CharField(
         max_length=200, verbose_name='Юридична особа')
+    recommended = models.BooleanField(
+        default=False, verbose_name='Рекомендовано')
 
     class Meta:
         ordering = ['order']
