@@ -19,6 +19,7 @@ from django.urls import path, include, re_path
 from offers_api import urls as offers_url
 from faq_api import urls as faq_url
 from pages_api import urls as pages_url
+from project_settings import urls as settings_url
 from django.views.static import serve
 from pathlib import Path
 
@@ -28,6 +29,7 @@ urlpatterns = [
     path('offers/', include(offers_url)),
     path('faq/', include(faq_url)),
     path('pages/', include(pages_url)),
+    path('settings/', include(settings_url)),
     re_path(r'^media(?P<path>.*)$', serve, {'document_root': str(Path(
         'media/'))}),
 ]

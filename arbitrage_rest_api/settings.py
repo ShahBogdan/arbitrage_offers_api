@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'faq_api',
     'pages_api',
-    'ckeditor'
+    'ckeditor',
+    'project_settings'
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
