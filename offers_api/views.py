@@ -13,7 +13,7 @@ class OffersListApiView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, *args, **kwargs):
-        offers = Offer.objects.all()
+        offers = Offer.objects.filter(show_offer=True)
         serializer = OffersSerializer(offers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
