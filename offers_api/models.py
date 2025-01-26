@@ -76,6 +76,8 @@ class Offer(models.Model):
         max_length=200, verbose_name='Юридична особа')
     recommended = models.BooleanField(
         default=False, verbose_name='Рекомендовано')
+    show_offer = models.BooleanField(
+        default=True, verbose_name='Активний оффер ?')
 
     class Meta:
         ordering = ['order']
