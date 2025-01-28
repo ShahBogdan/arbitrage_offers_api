@@ -15,7 +15,10 @@ class Page (models.Model):
         max_length=255, verbose_name="Мета заголовок")
     meta_description = models.CharField(
         max_length=255, verbose_name="Мета опис")
-    image = models.ImageField(upload_to='pages/', verbose_name='Зображення')
+    image = models.ImageField(
+        upload_to='pages/', verbose_name='Зображення для категорії')
+    image_full = models.ImageField(
+        upload_to='pages/', verbose_name='Зображення для статті', null=True, blank=True)
     h1 = models.CharField(
         max_length=255, verbose_name="Заголовок")
     text = RichTextField()
