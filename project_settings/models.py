@@ -34,6 +34,18 @@ class SiteSettings(models.Model):
         verbose_name="Текст категорії Pages", default='pages text')
     pages_og_image = models.ImageField(
         upload_to='pages/', verbose_name='Зображення для Open Graf', null=True, blank=True)
+
+    ranking_page_title = models.CharField(
+        max_length=255, verbose_name="Title Ranking", default='ranking faq')
+    ranking_page_h1 = models.CharField(
+        max_length=255, verbose_name="H1 для Ranking", default='ranking h1')
+    ranking_page_meta_desc = models.CharField(
+        max_length=255, verbose_name="Мета опис Ranking", default='ranking desc faq')
+    ranking_page_og_image = models.ImageField(
+        upload_to='pages/', verbose_name='Зображення для Open Graf - Ranking', null=True, blank=True)
+    ranking_page_text = RichTextField(
+        verbose_name="Текст FAQ", default='Ranking text')
+
     enable_feature = models.BooleanField(
         default=True, verbose_name="Робочий стан")
     text_for_google_term = RichTextField(
