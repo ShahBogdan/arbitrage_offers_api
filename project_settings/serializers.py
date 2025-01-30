@@ -26,5 +26,11 @@ class ProjectSettingsSerializers(serializers.ModelSerializer):
             'pages_text',
             'text_for_google_term',
             'footer_text',
-            'show_pages'
+            'show_pages',
+            'ranking_page_title',
+            'ranking_page_h1',
+            'ranking_page_meta_desc',
+            'ranking_page_og_image',
+            'ranking_page_text',
+            'logo_img'
         ]

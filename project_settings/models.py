@@ -44,7 +44,7 @@ class SiteSettings(models.Model):
     ranking_page_og_image = models.ImageField(
         upload_to='pages/', verbose_name='Зображення для Open Graf - Ranking', null=True, blank=True)
     ranking_page_text = RichTextField(
-        verbose_name="Текст FAQ", default='Ranking text')
+        verbose_name="Текст Ranking", default='Ranking text')
 
     enable_feature = models.BooleanField(
         default=True, verbose_name="Робочий стан")
@@ -54,6 +54,8 @@ class SiteSettings(models.Model):
         max_length=255, verbose_name="Текст для футера", default='footer_text')
     show_pages = models.BooleanField(
         default=False, verbose_name="Показувати статті")
+    logo_img = models.ImageField(
+        upload_to='pages/', verbose_name='logo', null=True, blank=True)
 
     def __str__(self):
         return "Налаштування сайту"
