@@ -56,6 +56,8 @@ class SiteSettings(models.Model):
         default=False, verbose_name="Показувати статті")
     logo_img = models.ImageField(
         upload_to='pages/', verbose_name='logo', null=True, blank=True)
+    site_policy = RichTextField(
+        verbose_name="Політика конфиденційності", default='Політика конфиденційності')
 
     def __str__(self):
         return "Налаштування сайту"
