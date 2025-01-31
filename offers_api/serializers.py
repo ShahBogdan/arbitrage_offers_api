@@ -60,5 +60,6 @@ class OffersSerializer(serializers.ModelSerializer):
             "email",
             "address",
             "phone",
-            "legal_entity"
+            "legal_entity",
+            "recommended"
         ]

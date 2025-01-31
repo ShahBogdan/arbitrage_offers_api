@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-ma%%%&c+&45ijg0fb9xt5$*u36n)awwxllvty8fc5d5qe2^tk_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['arb-api.website', 'fin-ranking.com.ua']
+ALLOWED_HOSTS = ['arb-api.website', 'fin-ranking.com.ua', 'localhost']
 CSRF_TRUSTED_ORIGINS = [
     'https://arb-api.website', 'https://fin-ranking.com.ua']
 
