@@ -61,5 +61,6 @@ class OffersSerializer(serializers.ModelSerializer):
             "address",
             "phone",
             "legal_entity",
-            "recommended"
+            "recommended",
+            "zero_first"
         ]

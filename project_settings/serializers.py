@@ -33,5 +33,5 @@ class ProjectSettingsSerializers(serializers.ModelSerializer):
             'ranking_page_og_image',
             'ranking_page_text',
             'logo_img',
-            'site_policy'
+            'site_policy',
         ]
