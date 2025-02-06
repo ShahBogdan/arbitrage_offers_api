@@ -72,6 +72,8 @@ class Offer(models.Model):
     email = models.EmailField(verbose_name='Email')
     address = models.CharField(max_length=200, verbose_name='Адреса')
     phone = models.CharField(max_length=200, verbose_name='Телефон')
+    offer_advantage = models.CharField(
+        max_length=200, default='offer_advantage', verbose_name='Перевага')
     zero_first = models.BooleanField(
         default=False, verbose_name='Перший під 0% ?')
     legal_entity = models.CharField(
