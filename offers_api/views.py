@@ -13,7 +13,11 @@ class OffersListApiView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, *args, **kwargs):
-        offers = Offer.objects.filter(show_offer=True)
+        country = request.query_params.get('country', 'UA')
+        if country:
+            offers = Offer.objects.filter(show_offer=True, country=country)
+        else:
+            offers = Offer.objects.filter(show_offer=True, country='UA')
         serializer = OffersSerializer(offers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

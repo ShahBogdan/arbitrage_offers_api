@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Offer, Advantages, RepaymentMethods, Documents
 
 
@@ -64,4 +65,6 @@ class OffersSerializer(serializers.ModelSerializer):
             "recommended",
             "zero_first",
             "offer_advantage",
+            "country",
+            "calculate_template",
         ]

@@ -1,5 +1,7 @@
 from django.db import models
 
+from arbitrage_rest_api import settings
+
 
 class Advantages(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -29,6 +31,10 @@ class Documents(models.Model):
 
 
 class Offer(models.Model):
+    OFFERS_COUNTRY = [
+        ("PL", "Poland"),
+        ("UA", "Ukraine"),
+    ]
     order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -74,6 +80,7 @@ class Offer(models.Model):
     phone = models.CharField(max_length=200, verbose_name='Телефон')
     offer_advantage = models.CharField(
         max_length=200, default='offer_advantage', verbose_name='Перевага')
+    calculate_template = models.TextField(null=True, blank=True)
     zero_first = models.BooleanField(
         default=False, verbose_name='Перший під 0% ?')
     legal_entity = models.CharField(
@@ -82,6 +89,8 @@ class Offer(models.Model):
         default=False, verbose_name='Рекомендовано')
     show_offer = models.BooleanField(
         default=True, verbose_name='Активний оффер ?')
+    country = models.CharField(
+        max_length=2, choices=OFFERS_COUNTRY, default='UA', verbose_name='Країна')
 
     class Meta:
         ordering = ['order']
